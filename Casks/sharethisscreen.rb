@@ -1,7 +1,7 @@
 cask "sharethisscreen" do
   # version/sha256 are rewritten by ./release.sh — keep them on their own lines.
-  version "1.4.0"
-  sha256 "48702b8c6eef533bf8f4b260081d0830ec5d7e5441f37454cd0b6cd3b33c2377"
+  version "1.5.0"
+  sha256 "aecaf8aa2171aca24459e8a22f76ca9f1ec7e95d184c68806048eca8a1b6f976"
 
   url "https://github.com/neri-bocchi/sharethisscreen/releases/download/v#{version}/ShareThisScreen-#{version}.zip"
   name "ShareThisScreen"
