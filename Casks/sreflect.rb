@@ -1,12 +1,12 @@
-cask "sharethisscreen" do
+cask "sreflect" do
   # version/sha256 are rewritten by ./release.sh — keep them on their own lines.
-  version "1.5.0"
-  sha256 "aecaf8aa2171aca24459e8a22f76ca9f1ec7e95d184c68806048eca8a1b6f976"
+  version "2.0.0"
+  sha256 "bd8954455546081c27dbda519adafba9d63cc4c683fae04bccef3baa8478f6f5"
 
-  url "https://github.com/neri-bocchi/sharethisscreen/releases/download/v#{version}/ShareThisScreen-#{version}.zip"
-  name "ShareThisScreen"
+  url "https://github.com/neri-bocchi/sreflect/releases/download/v#{version}/SReflect-#{version}.zip"
+  name "SReflect"
   desc "Mirrors one window into a window you share, so calls never see your whole screen"
-  homepage "https://github.com/neri-bocchi/sharethisscreen"
+  homepage "https://github.com/neri-bocchi/sreflect"
 
   livecheck do
     url :url
@@ -16,7 +16,7 @@ cask "sharethisscreen" do
   # ScreenCaptureKit + the Continuity Camera device type need macOS 14.
   depends_on macos: :sonoma
 
-  app "ShareThisScreen.app"
+  app "SReflect.app"
 
   # The release is signed with a stable self-signed identity, not with a
   # Developer ID, so it is not notarized. Homebrew quarantines every cask it
@@ -27,23 +27,23 @@ cask "sharethisscreen" do
   # (which is what keeps the Screen Recording grant alive across upgrades).
   postflight do
     system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/ShareThisScreen.app"]
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/SReflect.app"]
   end
 
-  uninstall quit: "app.sharethisscreen.mirror"
+  uninstall quit: "app.sreflect.mirror"
 
   zap trash: [
-    "~/Library/Preferences/app.sharethisscreen.mirror.plist",
-    "~/Library/Saved Application State/app.sharethisscreen.mirror.savedState",
+    "~/Library/Preferences/app.sreflect.mirror.plist",
+    "~/Library/Saved Application State/app.sreflect.mirror.savedState",
   ]
 
   caveats <<~EOS
-    ShareThisScreen needs Screen Recording permission, which macOS only lets you
+    SReflect needs Screen Recording permission, which macOS only lets you
     grant by hand — no installer can do it for you.
 
-      1. Launch ShareThisScreen. It will ask, and offer to open the pane for you.
+      1. Launch SReflect. It will ask, and offer to open the pane for you.
       2. System Settings › Privacy & Security › Screen & System Audio Recording
-      3. Enable ShareThisScreen, then reopen the app.
+      3. Enable SReflect, then reopen the app.
 
     Open that pane directly with:
       open "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture"
@@ -53,6 +53,6 @@ cask "sharethisscreen" do
 
     If the toggle is already on but the mirror stays black, the permission is
     stale — reset it and relaunch:
-      tccutil reset ScreenCapture app.sharethisscreen.mirror
+      tccutil reset ScreenCapture app.sreflect.mirror
   EOS
 end

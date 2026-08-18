@@ -1,4 +1,4 @@
-# ShareThisScreen
+# SReflect
 
 A macOS app that mirrors a single window into a plain black window, so you can
 share *that* window on a call instead of your whole screen — and switch what the
@@ -39,7 +39,8 @@ title bar](docs/screenshots/mirror.png)
 - **Idle plate** — with nothing to mirror yet, the plate reads *Not sharing your
   screen*, so the other side knows they aren't seeing anything of yours.
 - **Confetti** (`⌃⌘C`) — a burst of confetti falls over the mirror, so the other
-  side sees it too.
+  side sees it too. In the free edition each throw carries a small watermark; a
+  [Pro key](#free-and-pro) takes it off.
 - **Steps aside from the window it mirrors** — a mirror sitting on top of what it
   shows would give the other side two pointers, so it moves itself out of the
   captured region and grows back as soon as there is room again.
@@ -56,9 +57,9 @@ title bar](docs/screenshots/mirror.png)
 ## Install with Homebrew
 
 ```bash
-brew tap neri-bocchi/tap https://github.com/neri-bocchi/sharethisscreen
+brew tap neri-bocchi/tap https://github.com/neri-bocchi/sreflect
 brew trust neri-bocchi/tap
-brew install --cask sharethisscreen
+brew install --cask sreflect
 ```
 
 This repo doubles as its own tap, which is why the tap command carries the URL —
@@ -66,7 +67,7 @@ there's no separate `homebrew-tap` repository to clone. Recent Homebrew refuses 
 load casks from third-party taps until you trust them, hence the middle command;
 `brew install` fails with *"Refusing to load cask … from untrusted tap"* without it.
 
-That installs `ShareThisScreen.app` into `/Applications`, verifies the download's
+That installs `SReflect.app` into `/Applications`, verifies the download's
 checksum and clears the quarantine flag for you.
 
 ### Then grant Screen Recording
@@ -74,9 +75,9 @@ checksum and clears the quarantine flag for you.
 No installer can do this for you — macOS only accepts that grant from you, in
 System Settings:
 
-1. Launch ShareThisScreen. It asks on first run and offers to open the pane.
+1. Launch SReflect. It asks on first run and offers to open the pane.
 2. **System Settings › Privacy & Security › Screen & System Audio Recording**
-3. Enable ShareThisScreen and reopen the app.
+3. Enable SReflect and reopen the app.
 
 Until it's granted the mirror just shows `Screen Recording permission required.`
 The camera overlay (`⌘J`) asks for Camera permission separately, the first time
@@ -86,20 +87,20 @@ If the toggle is already on but the mirror stays black, the permission is stale 
 reset it and relaunch:
 
 ```bash
-tccutil reset ScreenCapture app.sharethisscreen.mirror
+tccutil reset ScreenCapture app.sreflect.mirror
 ```
 
 ### Upgrade and uninstall
 
 ```bash
-brew upgrade --cask sharethisscreen
-brew uninstall --cask sharethisscreen      # add --zap to drop preferences too
+brew upgrade --cask sreflect
+brew uninstall --cask sreflect      # add --zap to drop preferences too
 ```
 
 ## Without opening the Terminal
 
-`ShareThisScreen-Installer.dmg` on the [releases
-page](https://github.com/neri-bocchi/sharethisscreen/releases) carries an applet
+`SReflect-Installer.dmg` on the [releases
+page](https://github.com/neri-bocchi/sreflect/releases) carries an applet
 that runs those same three commands for you, installing Homebrew first if it
 isn't there. It isn't signed with an Apple identity, so the first launch needs
 **System Settings › Privacy & Security › Open Anyway** — the `.dmg` ships a LÉEME
@@ -117,7 +118,7 @@ which is what lets macOS keep your Screen Recording grant across upgrades.
 ## Using it on a call
 
 1. Launch the app — the mirror window opens, black, waiting for a window.
-2. In your meeting app, share the window titled **ShareThisScreen**.
+2. In your meeting app, share the window titled **SReflect**.
 3. Activate (or hover over) the window you want the others to see. The mirror
    picks it up; its title bar and the menu bar item show what's currently showing.
 4. Pick **Freeze on this window** from the menu bar item when you need to look at
@@ -186,6 +187,21 @@ windows](docs/screenshots/menu.png)
   — a second display, or a window that doesn't fill the screen.
 - Leave *keep in front* off while you are picking what to share: share pickers only
   list normal-level windows, so a mirror kept in front disappears from that list.
+
+## Free and Pro
+
+There is one app and one download. It runs free — for personal and commercial
+work alike, on as many Macs as you like — and everything on this page is in the
+free edition.
+
+Pro is a license key you paste into **License…** in the menu. Today it takes the
+watermark off the confetti, which is the one thing the free edition marks. More
+will land there over time; nothing that is free now becomes paid later.
+
+A key is a line of text, checked on your own Mac: no account, no sign-in, no
+network call. Ask for one at lbocchi@gmail.com.
+
+SReflect is proprietary software, © 2026 Luis Bocchi, all rights reserved.
 
 ---
 
