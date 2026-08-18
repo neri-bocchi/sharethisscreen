@@ -75,9 +75,12 @@ checksum and clears the quarantine flag for you.
 No installer can do this for you — macOS only accepts that grant from you, in
 System Settings:
 
-1. Launch SReflect. It asks on first run and offers to open the pane.
+1. Launch SReflect. On first run it walks you through it: a window with the
+   steps and a drawing of the row you're looking for — icon, name and the switch —
+   plus a button that opens the pane.
 2. **System Settings › Privacy & Security › Screen & System Audio Recording**
-3. Enable SReflect and reopen the app.
+3. Enable SReflect and reopen the app. The window notices the grant on its own
+   and offers to reopen for you.
 
 Until it's granted the mirror just shows `Screen Recording permission required.`
 The camera overlay (`⌘J`) asks for Camera permission separately, the first time

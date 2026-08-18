@@ -1,7 +1,7 @@
 cask "sreflect" do
   # version/sha256 are rewritten by ./release.sh — keep them on their own lines.
-  version "2.0.0"
-  sha256 "bd8954455546081c27dbda519adafba9d63cc4c683fae04bccef3baa8478f6f5"
+  version "2.0.1"
+  sha256 "256bb77219aa1769bdadc0f496498c824a4285b6a9bf65eccec6ea914df5c30f"
 
   url "https://github.com/neri-bocchi/sreflect/releases/download/v#{version}/SReflect-#{version}.zip"
   name "SReflect"
@@ -41,9 +41,11 @@ cask "sreflect" do
     SReflect needs Screen Recording permission, which macOS only lets you
     grant by hand — no installer can do it for you.
 
-      1. Launch SReflect. It will ask, and offer to open the pane for you.
+      1. Launch SReflect. It opens a window with the steps and a drawing of
+         the row you are looking for, plus a button that opens the pane.
       2. System Settings › Privacy & Security › Screen & System Audio Recording
-      3. Enable SReflect, then reopen the app.
+      3. Enable SReflect. The window sees the grant and offers to reopen the
+         app, which macOS needs either way.
 
     Open that pane directly with:
       open "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture"
