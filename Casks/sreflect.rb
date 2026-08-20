@@ -1,7 +1,7 @@
 cask "sreflect" do
   # version/sha256 are rewritten by ./release.sh — keep them on their own lines.
-  version "2.0.2"
-  sha256 "45f59d6006b2613c77ae255a3ebfcdb006d05d22dadd75126a898f632d6473e3"
+  version "2.1.0"
+  sha256 "c690b79bba652fdac70c66217de8cab2b220e29c1ceda1a48daedf941f7c6608"
 
   url "https://github.com/neri-bocchi/sreflect/releases/download/v#{version}/SReflect-#{version}.zip"
   name "SReflect"

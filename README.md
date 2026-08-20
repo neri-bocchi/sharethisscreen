@@ -32,6 +32,12 @@ title bar](docs/screenshots/mirror.png)
   sees the detail you are working on. It can *follow* the pointer and ease back
   out once you stop, or *hold*: `⌘`-click zooms in where you clicked and pans
   along with the pointer until you `⌘`-click again.
+- **Draw on the window** (`⌘D`) — puts a transparent sheet over the window you
+  are showing and lets you draw on it with a white pencil, to point at what you are
+  talking about. The other side sees the strokes baked into the picture, aligned
+  with the window and zoom included. The same shortcut wipes them and takes the
+  sheet away. Global, rebindable in **General…**, and it needs the *crop the
+  display* capture strategy — see the caveats.
 - **Fade between windows** — crossing from one window to another fades the old one
   out, holds a plate with the app icon and name, and fades the new one in. The
   other side never gets a hard cut, nor a frame of the incoming window before you
@@ -45,8 +51,10 @@ title bar](docs/screenshots/mirror.png)
   shows would give the other side two pointers, so it moves itself out of the
   captured region and grows back as soon as there is room again.
 - **Two capture strategies** — crop the display (no "shared window" badge, and the
-  target window keeps its window buttons), or capture the window as an entity
-  (cleaner when other windows overlap).
+  target window keeps its window buttons), or capture the window as an entity (macOS
+  flags it). Either way you share the window and not the screen around it: another
+  window over it, a notification banner, another app's tooltip or the Dock are taken
+  out of the stream, so the other side sees the window whole.
 - **Hide title bar** and **keep in front** for a clean, always-visible mirror.
 
 ## Requirements
@@ -136,6 +144,7 @@ windows](docs/screenshots/menu.png)
 | Action | Shortcut | Works |
 | --- | --- | --- |
 | Share the active window (shortcut mode) | `⌘S` by default, rebindable in General | anywhere |
+| Draw on the window | `⌘D` by default, rebindable in General | anywhere |
 | Throw confetti | `⌃⌘C` | anywhere |
 | Follow the cursor | `⌘1` | in the app |
 | Follow the active window | `⌘2` | in the app |
@@ -153,9 +162,9 @@ windows](docs/screenshots/menu.png)
 
 ## Settings
 
-- **General** — automatic vs. shortcut share mode, the share hotkey, the floating
-  preview switch, and the zoom section: follow the pointer, hold a zoom with
-  `⌘`-click, zoom depth and the follow-the-pointer zoom-out delay.
+- **General** — automatic vs. shortcut share mode, the share hotkey, the drawing
+  hotkey, the floating preview switch, and the zoom section: follow the pointer,
+  hold a zoom with `⌘`-click, zoom depth and the follow-the-pointer zoom-out delay.
 
   ![The General settings window](docs/screenshots/general.png)
 
@@ -188,6 +197,18 @@ windows](docs/screenshots/menu.png)
   of what it shows if there is somewhere to step. Share a window that fills the
   screen and the other side sees your pointer twice. Give the mirror its own space
   — a second display, or a window that doesn't fill the screen.
+- **Only the window you are showing is captured.** Every other window is left out of
+  the stream, so nothing that lands on top of the shared one — another window you click,
+  a notification banner, a tooltip — ever reaches the other side. Its own menus and
+  popovers stay, and a translucent window shows the desktop through it rather than the
+  windows behind it.
+- **Drawing needs *crop the display*.** In *capture the window* mode the stream
+  carries the target window and nothing that sits on top of it, so the sheet you
+  draw on never reaches the other side. The sheet tells you so while that mode is
+  on, in a note only you can read.
+- `⌘D` is a busy key — Duplicate, Add bookmark, Don't Save — and a global hotkey
+  takes it from every app while SReflect runs. Rebind it in **General…** if that
+  gets in your way.
 - Leave *keep in front* off while you are picking what to share: share pickers only
   list normal-level windows, so a mirror kept in front disappears from that list.
 
